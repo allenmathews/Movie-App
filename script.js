@@ -1,6 +1,6 @@
 const API_URL = 'https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=adfe4f4c4e7af569052cb0ab4bdbc61d&page=1'
 const IMG_PATH = 'https://image.tmdb.org/t/p/w1280'
-const SEARCH_API = 'https://api.themoviedb.org/3/search/movie?api_key=adfe4f4c4e7af569052cb0ab4bdbc61d&query="'
+const SEARCH_API = 'https://api.themoviedb.org/3/search/movie?api_key=adfe4f4c4e7af569052cb0ab4bdbc61d&query='
 
 const main = document.getElementById('main')
 const form = document.getElementById('form')
@@ -16,11 +16,12 @@ async function getMovies(url) {
 }
 
 function showMovies(movies) {
-    main.innerHTMl = ''
+    main.innerHTMl = ' ';
+    console.log(main.innerHTML, 'currentMainInnerHTML')
     movies.forEach((movie) => {
         const { title, poster_path, vote_average, overview } = movie
 
-        const  movieEl = document.createElement('div')
+        const movieEl = document.createElement('div')
         movieEl.classList.add('movie')
 
         movieEl.innerHTML = `
@@ -34,7 +35,6 @@ function showMovies(movies) {
                 <h3>Overview</h3>
                 ${overview}
              </div>
-     
         `
         main.appendChild(movieEl)
     })
@@ -52,7 +52,7 @@ function getClassByRate(vote) {
 
 form.addEventListener('submit', (e) => {
     e.preventDefault()
-
+    main.innerHTML = '';
     const searchTerm = search.value 
     
     if(searchTerm && searchTerm !== '') {
