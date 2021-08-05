@@ -6,6 +6,11 @@ const main = document.getElementById('main')
 const form = document.getElementById('form')
 const search = document.getElementById('search')
 
+const countEl = document.querySelector("span");
+
+const movieBar = document.getElementById("movieBar")
+const movieArray = [];
+
 //Get initial movies
 getMovies(API_URL)
 
@@ -27,7 +32,7 @@ function showMovies(movies) {
         movieEl.classList.add('movie')
 
         movieEl.innerHTML = `
-        <button onclick = "likeMovie(event)">Like</button>
+        <button data-title="${title}"  onclick = "likeMovie(event)">Like</button>
             <img src="${IMG_PATH + poster_path}" alt="${title}">
             <div class="movie-info">
                 <h3>${title}</h3>
@@ -44,10 +49,20 @@ function showMovies(movies) {
 }
 
 function likeMovie(e) {
-    console.log(e)
+    const movieLikes = document.getElementById("movieLikes")
+    count = parseInt(movieLikes.innerText)
+    
+
+
      if(e.target.innerText === 'Like') {
-         e.target.innerText = 'Unlike'
+        count++;
+        movieArray.push(e.target.dataset.title)
+        movieLikes.innerText = count;
+        e.target.innerText = 'Unlike'
+        renderLikedMovies()
      } else {
+         count--;
+         movieLikes.innerText = count;
          e.target.innerText = 'Like'
      }
 }
@@ -77,3 +92,10 @@ form.addEventListener('submit', (e) => {
         alert("Please input a movie name!")
     }
 })
+
+function renderLikedMovies() {
+    movieArray.forEach(movie => {
+      movieBar.append(movie)
+    })
+    
+}
