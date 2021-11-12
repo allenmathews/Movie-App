@@ -9,7 +9,7 @@ const search = document.getElementById('search')
 const countEl = document.querySelector("span");
 
 const movieBar = document.getElementById("movieBar")
-const movieArray = [];
+const movieArray = [''];
 
 //Get initial movies
 getMovies(API_URL)
@@ -51,26 +51,26 @@ function showMovies(movies) {
 function likeMovie(e) {
     const movieLikes = document.getElementById("movieLikes")
     count = parseInt(movieLikes.innerText)
-    
 
 
-     if(e.target.innerText === 'Like') {
+
+    if (e.target.innerText === 'Like') {
         count++;
         movieArray.push(e.target.dataset.title)
         movieLikes.innerText = count;
         e.target.innerText = 'Unlike'
         renderLikedMovies()
-     } else {
-         count--;
-         movieLikes.innerText = count;
-         e.target.innerText = 'Like'
-     }
+    } else {
+        count--;
+        movieLikes.innerText = count;
+        e.target.innerText = 'Like'
+    }
 }
 
 function getClassByRate(vote) {
-    if(vote >= 8){
+    if (vote >= 8) {
         return 'green'
-    } else if(vote >= 5) {
+    } else if (vote >= 5) {
         return 'orange'
     } else {
         return 'red'
@@ -79,10 +79,10 @@ function getClassByRate(vote) {
 
 form.addEventListener('submit', (e) => {
     e.preventDefault()
-    
-    const searchTerm = search.value 
-    
-    if(searchTerm && searchTerm !== '') {
+
+    const searchTerm = search.value
+
+    if (searchTerm && searchTerm !== '') {
         main.innerHTML = '';
         getMovies(SEARCH_API + searchTerm)
 
@@ -95,7 +95,7 @@ form.addEventListener('submit', (e) => {
 
 function renderLikedMovies() {
     movieArray.forEach(movie => {
-      movieBar.append(movie)
+        movieBar.append(movie)
     })
-    
+
 }
