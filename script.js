@@ -95,7 +95,7 @@ form.addEventListener('submit', (e) => {
 
 function renderLikedMovies() {
     movieArray.forEach(movie => {
-        movieBar.append(movie)
+        movieform.append(movie)
     })
 
 }
