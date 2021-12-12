@@ -10,6 +10,19 @@ const countEl = document.querySelector("span");
 
 const movieBar = document.getElementById("movieBar")
 const movieArray = [''];
+const movieform = document.getElementById("movieform")
+
+
+// fetch(API_URL)
+//     .then(response => response.json())
+//     .then(data =>
+//         showMovies(data.results)
+//     )
+
+// .catch(error => {
+//     console.log('Error:',
+//         error)
+// })
 
 //Get initial movies
 getMovies(API_URL)
@@ -20,6 +33,7 @@ async function getMovies(url) {
 
     showMovies(data.results)
 }
+
 
 function showMovies(movies) {
     main.innerHTMl = ' ';
@@ -52,8 +66,6 @@ function likeMovie(e) {
     const movieLikes = document.getElementById("movieLikes")
     count = parseInt(movieLikes.innerText)
 
-
-
     if (e.target.innerText === 'Like') {
         count++;
         movieArray.push(e.target.dataset.title)
@@ -66,6 +78,8 @@ function likeMovie(e) {
         e.target.innerText = 'Like'
     }
 }
+
+
 
 function getClassByRate(vote) {
     if (vote >= 8) {
@@ -93,9 +107,42 @@ form.addEventListener('submit', (e) => {
     }
 })
 
+function likeMovie(e) {
+    const movieLikes = document.getElementById("movieLikes")
+    count = parseInt(movieLikes.innerText)
+
+    if (e.target.innerText === 'Like') {
+        count++;
+        movieArray.push(e.target.dataset.title)
+        movieLikes.innerText = count;
+        e.target.innerText = 'Unlike'
+        renderLikedMovies()
+    } else {
+        count--;
+        movieLikes.innerText = count;
+        e.target.innerText = 'Like'
+    }
+}
+
+const buttons = Array.from(document.querySelectorAll('button'));
+// attach eventListener to each like button to listen for the click
+buttons.forEach(function attachClickEvent(btn) {
+    btn.onClick = function ClickFiredOnThisButton(clickEvent) {
+        // clickEvent has fired on this particular button 
+        // -- write some code to add this movie to the likes movie container
+    }
+})
+
 function renderLikedMovies() {
     movieArray.forEach(movie => {
         movieform.append(movie)
     })
+    main.appendChild(movie)
 
+}
+
+function renderUnLikedMovies() {
+    movieArray.forEach(movie => {
+        movieform.removeChild(movie)
+    })
 }

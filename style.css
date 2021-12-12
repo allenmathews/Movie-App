@@ -127,6 +127,7 @@ main {
     margin: 1 rem;
 }
 
-#movieform {
-    display: block;
+#movieBar {
+    display: flex;
+    justify-content: space-between;
 }
