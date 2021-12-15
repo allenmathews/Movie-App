@@ -110,8 +110,10 @@ form.addEventListener('submit', (e) => {
 function likeMovie(e) {
     const movieLikes = document.getElementById("movieLikes")
     count = parseInt(movieLikes.innerText)
+    const inputmovie = document.getElementById('movieformbar')
 
     if (e.target.innerText === 'Like') {
+        inputmovie.value = e.target.dataset.title
         count++;
         movieArray.push(e.target.dataset.title)
         movieLikes.innerText = count;
@@ -141,8 +143,8 @@ function renderLikedMovies() {
 
 }
 
-function renderUnLikedMovies() {
-    movieArray.forEach(movie => {
-        movieform.removeChild(movie)
-    })
-}
+// function renderUnLikedMovies() {
+//     movieArray.forEach(movie => {
+//         movieform.removeChild(movie)
+//     })
+// }
