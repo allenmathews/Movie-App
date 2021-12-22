@@ -129,5 +129,22 @@ main {
 
 #movieBar {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
+}
+
+#movieformbar {
+    /* display: flex;
+    justify-content: flex-start; */
+    display: flex;
+    justify-content: end;
+    background-color: yellow;
+    border: 5px solid var(--primary-color);
+    border-radius: 50px;
+    font-family: inherit;
+    font-size: 1 rem;
+    padding: 5 rem 5 rem;
+    color: black;
+    text-align: center;
+    height: 300px;
+    width: 1000px
 }

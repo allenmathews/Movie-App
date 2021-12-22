@@ -116,6 +116,7 @@ function likeMovie(e) {
         inputmovie.value = e.target.dataset.title
         count++;
         movieArray.push(e.target.dataset.title)
+
         movieLikes.innerText = count;
         e.target.innerText = 'Unlike'
         renderLikedMovies()
@@ -135,13 +136,13 @@ buttons.forEach(function attachClickEvent(btn) {
     }
 })
 
-function renderLikedMovies() {
-    movieArray.forEach(movie => {
-        movieform.append(movie)
-    })
-    main.appendChild(movie)
+// function renderLikedMovies() {
+//     movieArray.forEach(movie => {
+//         movieform.append(movie)
+//     })
+//     main.appendChild(movie)
 
-}
+// }
 
 // function renderUnLikedMovies() {
 //     movieArray.forEach(movie => {
