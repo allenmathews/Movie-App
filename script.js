@@ -91,50 +91,50 @@ function getClassByRate(vote) {
     }
 }
 
-form.addEventListener('submit', (e) => {
-    e.preventDefault()
+// form.addEventListener('submit', (e) => {
+//     e.preventDefault()
 
-    const searchTerm = search.value
+//     const searchTerm = search.value
 
-    if (searchTerm && searchTerm !== '') {
-        main.innerHTML = '';
-        getMovies(SEARCH_API + searchTerm)
+//     if (searchTerm && searchTerm !== '') {
+//         main.innerHTML = '';
+//         getMovies(SEARCH_API + searchTerm)
 
-        search.value = ''
-    } else {
-        window.location.reload()
-        alert("Please input a movie name!")
-    }
-})
+//         search.value = ''
+//     } else {
+//         window.location.reload()
+//         alert("Please input a movie name!")
+//     }
+// })
 
-function likeMovie(e) {
-    const movieLikes = document.getElementById("movieLikes")
-    count = parseInt(movieLikes.innerText)
-    const inputmovie = document.getElementById('movieformbar')
+// function likeMovie(e) {
+//     const movieLikes = document.getElementById("movieLikes")
+//     count = parseInt(movieLikes.innerText)
+//     const inputmovie = document.getElementById('movieformbar')
 
-    if (e.target.innerText === 'Like') {
-        inputmovie.value = e.target.dataset.title
-        count++;
-        movieArray.push(e.target.dataset.title)
+//     if (e.target.innerText === 'Like') {
+//         inputmovie.value = e.target.dataset.title
+//         count++;
+//         movieArray.push(e.target.dataset.title)
 
-        movieLikes.innerText = count;
-        e.target.innerText = 'Unlike'
-        renderLikedMovies()
-    } else {
-        count--;
-        movieLikes.innerText = count;
-        e.target.innerText = 'Like'
-    }
-}
+//         movieLikes.innerText = count;
+//         e.target.innerText = 'Unlike'
+//         renderLikedMovies()
+//     } else {
+//         count--;
+//         movieLikes.innerText = count;
+//         e.target.innerText = 'Like'
+//     }
+// }
 
-const buttons = Array.from(document.querySelectorAll('button'));
-// attach eventListener to each like button to listen for the click
-buttons.forEach(function attachClickEvent(btn) {
-    btn.onClick = function ClickFiredOnThisButton(clickEvent) {
-        // clickEvent has fired on this particular button 
-        // -- write some code to add this movie to the likes movie container
-    }
-})
+// const buttons = Array.from(document.querySelectorAll('button'));
+// // attach eventListener to each like button to listen for the click
+// buttons.forEach(function attachClickEvent(btn) {
+//     btn.onClick = function ClickFiredOnThisButton(clickEvent) {
+//         // clickEvent has fired on this particular button 
+//         // -- write some code to add this movie to the likes movie container
+//     }
+// })
 
 // function renderLikedMovies() {
 //     movieArray.forEach(movie => {
