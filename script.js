@@ -23,14 +23,13 @@ const movieform = document.getElementById("movieform")
 //     console.log('Error:',
 //         error)
 // })
-
 //Get initial movies
+
 getMovies(API_URL)
 
 async function getMovies(url) {
     const res = await fetch(url)
     const data = await res.json()
-
     showMovies(data.results)
 }
 
@@ -91,21 +90,21 @@ function getClassByRate(vote) {
     }
 }
 
-// form.addEventListener('submit', (e) => {
-//     e.preventDefault()
+form.addEventListener('submit', (e) => {
+    e.preventDefault()
 
-//     const searchTerm = search.value
+    const searchTerm = search.value
 
-//     if (searchTerm && searchTerm !== '') {
-//         main.innerHTML = '';
-//         getMovies(SEARCH_API + searchTerm)
+    if (searchTerm && searchTerm !== '') {
+        main.innerHTML = '';
+        getMovies(SEARCH_API + searchTerm)
 
-//         search.value = ''
-//     } else {
-//         window.location.reload()
-//         alert("Please input a movie name!")
-//     }
-// })
+        search.value = ''
+    } else {
+        window.location.reload()
+        alert("Please input a movie name!")
+    }
+})
 
 // function likeMovie(e) {
 //     const movieLikes = document.getElementById("movieLikes")
