@@ -33,7 +33,7 @@ header {
     font-family: inherit;
     font-size: 1 rem;
     padding: .5rem 1 rem;
-    color: rgb(135, 105, 105);
+    color: rgb(183, 138, 138);
     text-align: center;
 }
 
@@ -86,15 +86,15 @@ main {
 }
 
 .movie-info span.green {
-    color: lightgreen
+    color: rgb(108, 177, 108)
 }
 
 .movie-info span.orange {
-    color: orange
+    color: rgb(204, 155, 62)
 }
 
 .movie-info span.red {
-    color: red
+    color: rgb(208, 96, 96)
 }
 
 .overview {
